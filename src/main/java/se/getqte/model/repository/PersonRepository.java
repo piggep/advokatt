@@ -1,9 +1,9 @@
-package com.srai.model.repository;
+package se.getqte.model.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.srai.model.Person;
+import se.getqte.model.Person;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.srai.tenant.hibernate;
+package se.getqte.tenant.hibernate;
 
-import com.srai.tenant.TenantContext;
+import se.getqte.tenant.TenantContext;
 import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 import org.springframework.stereotype.Component;
 

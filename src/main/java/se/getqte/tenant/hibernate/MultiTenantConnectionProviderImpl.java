@@ -1,6 +1,6 @@
-package com.srai.tenant.hibernate;
+package se.getqte.tenant.hibernate;
 
-import com.srai.tenant.TenantContext;
+import se.getqte.tenant.TenantContext;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +32,7 @@ public class MultiTenantConnectionProviderImpl implements MultiTenantConnectionP
   @Override
   public Connection getConnection(String tenantIdentifier) throws SQLException {
     final Connection connection = getAnyConnection();
+
     try {
       connection.createStatement().execute( "USE " + tenantIdentifier );
     }

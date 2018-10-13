@@ -1,8 +1,8 @@
-package com.srai.tenant;
+package se.getqte.tenant;
 
 public class TenantContext {
 
-  final public static String DEFAULT_TENANT = "test";
+  final public static String DEFAULT_TENANT = "advok";
 
   private static ThreadLocal<String> currentTenant = new ThreadLocal<String>()
   {

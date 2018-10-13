@@ -35,18 +35,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.projectlombok:lombok')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile 'com.auth0:auth0-spring-security-api:1.1.0'
+	compile 'com.auth0:auth0:1.9.0'
+
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-}
-
-task buildDocker(type: Docker, dependsOn: build) {
-//  push = true
-  applicationName = jar.baseName
-  dockerfile = file('src/main/docker/Dockerfile')
-  doFirst {
-    copy {
-      from jar
-      into stageDir
-    }
-  }
 }

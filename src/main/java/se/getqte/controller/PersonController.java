@@ -1,4 +1,4 @@
-package com.srai.controller;
+package se.getqte.controller;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
@@ -8,8 +8,7 @@ import org.springframework.hateoas.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +16,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.srai.model.Person;
-import com.srai.model.repository.PersonRepository;
+import se.getqte.configuration.IAuthenticationFacade;
+import se.getqte.model.Person;
+import se.getqte.model.repository.PersonRepository;
 
-import javax.validation.Valid;
+import java.security.Principal;
 
 /** Simple controller to illustrate templates. */
 @RestController
@@ -55,9 +55,9 @@ public class PersonController {
   @ResponseBody public ResponseEntity<?> savePerson(@RequestBody final Person person) {
     final Person persistedPerson = repository.save(person);
     final Resource<Person> resource = new Resource<Person>(persistedPerson);
-    resource.add(
-        linkTo(methodOn(PersonController.class).getPerson(persistedPerson.getId())).withSelfRel()
-    );
+
+    resource.add(linkTo(methodOn(PersonController.class).getPerson(persistedPerson.getId())).withSelfRel());
+
     return ResponseEntity
         .status(HttpStatus.CREATED)
         .contentType(MediaType.APPLICATION_JSON)

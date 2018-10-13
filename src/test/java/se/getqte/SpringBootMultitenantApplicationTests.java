@@ -1,4 +1,4 @@
-package com.srai;
+package se.getqte;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

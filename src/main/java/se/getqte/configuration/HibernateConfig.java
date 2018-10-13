@@ -1,4 +1,4 @@
-package com.srai.configuration;
+package se.getqte.configuration;
 
 import org.hibernate.MultiTenancyStrategy;
 import org.hibernate.cfg.Environment;
@@ -40,7 +40,7 @@ public class HibernateConfig {
 
     LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
     em.setDataSource(dataSource);
-    em.setPackagesToScan("com.srai");
+    em.setPackagesToScan("se.getqte");
     em.setJpaVendorAdapter(jpaVendorAdapter());
     em.setJpaPropertyMap(properties);
     return em;

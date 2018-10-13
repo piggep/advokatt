@@ -1,4 +1,4 @@
-package com.srai.configuration;
+package se.getqte.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

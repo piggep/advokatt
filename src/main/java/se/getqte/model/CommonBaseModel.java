@@ -1,4 +1,4 @@
-package com.srai.model;
+package se.getqte.model;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
