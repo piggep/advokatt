@@ -10,9 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
-import se.getqte.model.Client;
-import se.getqte.model.ClientType;
-import se.getqte.model.Person;
+import se.getqte.model.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +23,7 @@ public class SpringBootMultitenantApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootMultitenantApplication.class, args);
-		kott();
+		//kott();
 	}
 
 	public static void kott(){
@@ -42,10 +40,16 @@ public class SpringBootMultitenantApplication {
 				new StandardServiceRegistryBuilder()
 						.applySettings(settings)
 						.build());
-		metadata.addAnnotatedClass(Person.class);
-		metadata.addAnnotatedClass(ClientType.class);
 
+		metadata.addAnnotatedClass(Errand.class);
+		metadata.addAnnotatedClass(ErrandGroup.class);
 		metadata.addAnnotatedClass(Client.class);
+		metadata.addAnnotatedClass(ClientType.class);
+		metadata.addAnnotatedClass(Expense.class);
+		metadata.addAnnotatedClass(Part.class);
+		metadata.addAnnotatedClass(PartRole.class);
+		metadata.addAnnotatedClass(TimeEntry.class);
+
 		SchemaExport schemaExport = new SchemaExport(
 				(MetadataImplementor) metadata.buildMetadata()
 		);
@@ -53,6 +57,6 @@ public class SpringBootMultitenantApplication {
 		schemaExport.setFormat(true);
 		schemaExport.setDelimiter(";");
 		schemaExport.setOutputFile("db-schema.sql");
-		schemaExport.execute(true, false, false, false);
+		schemaExport.execute(true, false, false, true);
 	}
 }

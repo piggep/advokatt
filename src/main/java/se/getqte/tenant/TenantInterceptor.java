@@ -3,6 +3,8 @@ package se.getqte.tenant;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -16,7 +18,6 @@ import java.util.Map;
 @Component
 public class TenantInterceptor extends HandlerInterceptorAdapter {
 
-  private static final String TENANT_HEADER = "X-TenantID";
 
   @Autowired
   private IAuthenticationFacade authenticationFacade;
@@ -26,8 +27,11 @@ public class TenantInterceptor extends HandlerInterceptorAdapter {
 
   @Override
   public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object handler) throws Exception {
-
+    if(res.getStatus() >= 300){
+      return false;
+    }
     boolean tenantSet = false;
+    authenticationFacade.getAuthentication();
     Map<String, Object> appMetadata =  auth0.getUser(authenticationFacade.getAuthentication().getName()).getAppMetadata();
     String tenant = appMetadata != null ? (String) appMetadata.getOrDefault("tenant", "") : "";
     if(tenant.equals("")){

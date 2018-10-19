@@ -1,30 +1,43 @@
 package se.getqte.model;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "errand")
 public class Errand extends CommonBaseModel {
 
+    @Column(name = "errand_nr")
     private String errandNr;
+
+    @Column(name = "start_date")
     private Date startDate;
     private String reference;
+
+    @Column(name = "objective_nr")
     private String objectiveNr;
+
     private Boolean internal;
     private Boolean billable;
     private Boolean active;
+
+    @Column(name = "archive_nr")
     private String archiveNr;
+
+    @Column(name = "end_date")
     private Date endDate;
+
+    @Column(name = "end_note")
     private String endNote;
+
+    @Column(name = "errand_note")
     private String errandNote;
 
     @ManyToOne
     private Client client;
 
     @ManyToOne
+    @JoinColumn(name="errand_group")
     private ErrandGroup errandGroup;
 
 

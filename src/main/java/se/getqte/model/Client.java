@@ -9,7 +9,10 @@ import javax.persistence.*;
 public class Client extends CommonBaseModel {
 
     private String name;
+
+    @Column(name = "id_number")
     private String idNumber;
+
     private String adress;
     private String zip;
     private String city;
@@ -18,13 +21,20 @@ public class Client extends CommonBaseModel {
     private String email;
     private String vat;
     private String site;
+
+    @Column(name = "payment_note")
     private String paymentNote;
+
+    @Column(name = "payment_days")
     private Integer paymentDays;
     private String account;
+
+    @Column(name = "not_wanted")
     private Boolean notWanted;
     private String note;
 
     @ManyToOne
+    @JoinColumn(name="client_type")
     private ClientType clientType;
 
 

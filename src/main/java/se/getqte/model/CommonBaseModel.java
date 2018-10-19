@@ -6,11 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 /** Abstract base model including primary id and
  * created_at and updated_at time fields.
@@ -20,15 +16,17 @@ import javax.persistence.MappedSuperclass;
 public class CommonBaseModel {
   /** Primary id. */
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   /** Model created at timestamp. */
   @CreatedDate
+  @Column(name = "created_at")
   private Date createdAt;
 
   /** Model updated at timestamp. */
   @LastModifiedDate
+  @Column(name = "updated_at")
   private Date updatedAt;
 
   /** Constructor. */

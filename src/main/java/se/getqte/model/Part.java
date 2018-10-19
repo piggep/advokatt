@@ -1,13 +1,13 @@
 package se.getqte.model;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "part")
 public class Part extends CommonBaseModel {
     private String name;
+
+    @Column(name = "id_number")
     private String idNumber;
     private String adress;
     private String zip;
@@ -17,17 +17,23 @@ public class Part extends CommonBaseModel {
     private String email;
     private String vat;
     private String site;
+
+    @Column(name = "payment_note")
     private String paymentNote;
+
+    @Column(name = "payment_days")
     private String paymentDays;
     private String account;
+
+    @Column(name = "not_wanted")
     private Boolean notWanted;
     private String note;
-
 
     @ManyToOne
     private Errand errand;
 
     @ManyToOne
+    @JoinColumn(name="part_role")
     private PartRole partRole;
 
     public String getName() {

@@ -1,5 +1,6 @@
 package se.getqte.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -15,6 +16,7 @@ public class Expense extends CommonBaseModel {
     private String description;
     private Date date;
     private Integer price;
+    @Column(name = "is_billable")
     private Boolean isBillable;
 
     public Errand getErrand() {
