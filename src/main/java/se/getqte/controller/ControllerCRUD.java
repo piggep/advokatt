@@ -41,7 +41,7 @@ public class ControllerCRUD {
     public ResponseEntity<?> save(Object repo) {
         Object obj = repository.save(repo);
         logger.info("Successfully created new entity");
-        return ResponseEntity.created(URI.create("")).build();
+        return ResponseEntity.ok(repo);
     }
 
 }

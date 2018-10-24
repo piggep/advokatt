@@ -1,5 +1,6 @@
 package se.getqte.model;
 
+import com.sun.tools.javac.util.List;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
