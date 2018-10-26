@@ -2,7 +2,7 @@ package se.getqte.tenant;
 
 public class TenantContext {
 
-  final public static String DEFAULT_TENANT = "advok";
+  final public static String DEFAULT_TENANT = "admin_advok";
 
   private static ThreadLocal<String> currentTenant = ThreadLocal.withInitial(() -> DEFAULT_TENANT);
 

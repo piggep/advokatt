@@ -12,14 +12,14 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'docker'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
 
 jar {
 	baseName = 'spring-boot-multitenant'
-	version = '0.0.1-SNAPSHOT'
+	version = ''
 }
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -40,4 +40,6 @@ dependencies {
 
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile group: 'com.h2database', name: 'h2', version: '1.0.60'
+
 }
