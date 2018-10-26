@@ -13,6 +13,7 @@ public class SpringBootMultitenantApplicationTests {
 
 	@Test
 	public void contextLoads() {
+
 	}
 
 }

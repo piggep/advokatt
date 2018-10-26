@@ -33,7 +33,7 @@ public class MultiTenantConnectionProviderImpl implements MultiTenantConnectionP
   public Connection getConnection(String tenantIdentifier) throws SQLException {
     final Connection connection = getAnyConnection();
 
-    /*try {
+    try {
       connection.createStatement().execute( "USE " + tenantIdentifier );
     }
     catch ( SQLException e ) {
@@ -41,7 +41,7 @@ public class MultiTenantConnectionProviderImpl implements MultiTenantConnectionP
           "Could not alter JDBC connection to specified schema [" + tenantIdentifier + "]",
           e
           );
-    } */
+    }
     return connection;
   }
 

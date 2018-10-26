@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TestTest {
+
     @Autowired
     ClientRepository clientRepository;
     Logger logger = Logger.getLogger(TestTest.class.getName());
