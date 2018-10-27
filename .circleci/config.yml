@@ -24,11 +24,13 @@ jobs:
     steps:
       - checkout
 
-    - restore_cache:
+      - restore_cache:
         keys:
           - gradle-{{ checksum "build.gradle" }}
-    - run: gradle build
-    - save_cache:
+
+      - run: gradle build
+
+      - save_cache:
          paths:
             - ~/.gradle
          key: gradle-{{ checksum "build.gradle" }}
