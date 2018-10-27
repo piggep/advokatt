@@ -27,6 +27,13 @@ repositories {
 	mavenCentral()
 }
 
+task downloadDependencies() {
+	description 'Download all dependencies to the Gradle cache'
+	doLast {
+		configurations.findAll { it.canBeResolved }.files
+	}
+}
+
 
 dependencies {
 	compile('org.apache.commons:commons-lang3:3.0')
@@ -43,3 +50,5 @@ dependencies {
 	testCompile group: 'com.h2database', name: 'h2', version: '1.0.60'
 
 }
+
+
