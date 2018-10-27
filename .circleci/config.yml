@@ -24,12 +24,15 @@ jobs:
     steps:
       - checkout
 
-      - run: gradle dependencies
-
-      - save_cache:
-          paths:
+    - restore_cache:
+        keys:
+          - gradle-{{ checksum "build.gradle" }}
+    - run: gradle build
+    - save_cache:
+         paths:
             - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+         key: gradle-{{ checksum "build.gradle" }}
+
 
       # run tests!
       - run: gradle build && gradle test --stacktrace
