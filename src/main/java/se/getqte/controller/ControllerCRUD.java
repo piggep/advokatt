@@ -15,7 +15,7 @@ public class ControllerCRUD {
     }
 
     public ResponseEntity<?> getAll(){
-        return ResponseEntity.ok("wow");
+        return ResponseEntity.ok(repository.findAll());
     }
 
 
