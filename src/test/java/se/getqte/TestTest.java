@@ -29,7 +29,5 @@ public class TestTest {
     public void whenFindByName_thenReturnEmployee() throws Exception {
         logger.warning(clientRepository.findAll().size() + "");
 
-        throw new Exception("asd");
-
     }
 }
