@@ -16,13 +16,6 @@ import java.util.logging.Logger;
 @TestPropertySource(locations="classpath:test.properties")
 public class TestTest {
 
-    @Autowired
-    ClientRepository clientRepository;
-
-    Logger logger = Logger.getLogger(TestTest.class.getName());
-
-    @Autowired
-    private ClientRepository repository;
 
 
 
