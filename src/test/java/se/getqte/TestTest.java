@@ -28,6 +28,5 @@ public class TestTest {
     @Test
     public void whenFindByName_thenReturnEmployee() throws Exception {
         logger.warning(clientRepository.findAll().size() + "");
-    // comment
     }
 }
