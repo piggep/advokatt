@@ -25,8 +25,5 @@ public class TestTest {
     private ClientRepository repository;
 
 
-    @Test
-    public void whenFindByName_thenReturnEmployee() throws Exception {
-        logger.warning(clientRepository.findAll().size() + "");
-    }
+
 }
